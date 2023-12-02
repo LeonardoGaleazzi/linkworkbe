@@ -1,4 +1,4 @@
-package com.example.stockandbonds;
+package com.example.linkwork;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
