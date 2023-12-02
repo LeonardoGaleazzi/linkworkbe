@@ -1,0 +1,20 @@
+server:
+  port: 3700
+
+spring:
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        default_schema: STOCKLOCAL
+    database: oracle
+  datasource:
+    url: jdbc:oracle:thin:@localhost:1521/xe
+    username: STOCKLOCAL
+    password: STOCKLOCAL
+    driver-class-name: oracle.jdbc.OracleDriver
+  mvc:
+    pathmatch:
+      matching-strategy: ANT_PATH_MATCHER
