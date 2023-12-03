@@ -1,6 +1,5 @@
 package com.example.linkwork.user;
 
-import com.sun.tools.javac.util.List;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -10,7 +9,10 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
+import java.util.Arrays;
 import java.util.Collection;
+import java.util.Collections;
+import java.util.List;
 
 @Data
 @Builder
@@ -34,7 +36,8 @@ public class User implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return List.of(new SimpleGrantedAuthority(role.name()));
+        //return List.of(new SimpleGrantedAuthority(role.name()));
+        return Collections.unmodifiableList(Arrays.asList(new SimpleGrantedAuthority(role.name())));
     }
 
     @Override

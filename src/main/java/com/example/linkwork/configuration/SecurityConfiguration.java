@@ -9,6 +9,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 @Configuration
 @EnableWebSecurity
@@ -26,7 +27,10 @@ public class SecurityConfiguration {
                 .csrf()
                 .disable()
                 .authorizeHttpRequests()
-                .requestMatchers()
+                .requestMatchers(new AntPathRequestMatcher("/api/v1/auth/**"))
+                //.antMatchers("/api/v1/auth/**",
+                //        "/v2/api-docs",           // Swagger API docs
+                  //      "/swagger-ui/**" )
                 .permitAll()
                 .anyRequest()
                 .authenticated()
