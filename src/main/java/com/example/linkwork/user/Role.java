@@ -1,6 +1,8 @@
 package com.example.linkwork.user;
 
 public enum Role {
-    USER,
+    FREELANCER,
+    JOBOWNER,
     ADMIN
+
 }
